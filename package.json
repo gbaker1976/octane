@@ -1,0 +1,26 @@
+{
+  "name": "octane",
+  "version": "0.1.0",
+  "description": "Event driven UI framework that handles inter-layer messaging, service registry, service lookup and state management ",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.exacttarget.com/SocialPagesDev/octane.git"
+  },
+  "author": "CloudPages Squad",
+  "license": "Propietary",
+  "devDependencies": {
+    "es6-module-transpiler-amd-formatter": "^0.3.0",
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-es6-module-transpiler": "^0.2.1",
+    "gulp-rm": "^1.0.0",
+    "gulp-uglify": "^1.1.0"
+  }
+}
