@@ -1,6 +1,4 @@
 // store.js
-export function Store(){};
-
-Store.prototype.init = function(){
-
+export class Store {
+	init(){};
 };

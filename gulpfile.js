@@ -2,7 +2,8 @@ var gulp  = require( 'gulp' );
 var rm  = require( 'gulp-rm' );
 var concat  = require( 'gulp-concat' );
 var uglify = require('gulp-uglify');
-var transpile  = require( 'gulp-es6-module-transpiler' );
+var moduleTranspile  = require( 'gulp-es6-module-transpiler' );
+var transpile  = require( 'gulp-es6-transpiler' );
 var formatter = require( 'es6-module-transpiler-amd-formatter' );
 
 var PATHS = {
@@ -12,9 +13,15 @@ var PATHS = {
 
 gulp.task( 'module-build', function() {
     return gulp.src( PATHS.src + '/**/*.js' )
-        .pipe(transpile({
-            formatter: formatter,
+		.pipe(moduleTranspile({
+			formatter: formatter,
 			basePath: PATHS.src
+		}))
+		.pipe(transpile({
+			basePath: PATHS.src,
+			globals: {
+				'define' : false
+			}
         }))
 		.pipe( concat( 'octane.min.js' ) )
 		.pipe( uglify() )

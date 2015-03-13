@@ -1,13 +1,18 @@
-import { App } from "app";
 import { Factory } from "factory";
 import { View } from "view";
 import { Route } from "route";
 import { Store } from "store";
+import { MessageBus } from "bus";
+import { Registry } from "registry";
 
-return {
-	App: App,
-	Factory: Factory,
-	View: View,
-	Route: Route,
-	Store: Store
+var _registry = new Registry();
+
+class Octane {
+	get Factory() { return Factory };
+	get MessageBus() { return MessageBus };
+	get Store() { return Store };
+	get Route() { return Route };
+	get View() { return View };
 };
+
+return Octane;

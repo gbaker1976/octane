@@ -1,6 +1,4 @@
 // route.js
-export function Route(){};
-
-Route.prototype.init = function(){
-
+export class Route {
+	init(){};
 };

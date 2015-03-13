@@ -1,6 +1,13 @@
 <html>
 <head>
 	<title>Test</title>
+	<script src="require.js"></script>
+	<script src="../dist/octane.min.js"></script>
+	<script>
+		require( ['octane'], function( Octane ){
+			alert( new Octane().View );
+		});
+	</script>
 </head>
 <body>
 	test.
