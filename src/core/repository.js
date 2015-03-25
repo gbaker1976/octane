@@ -1,4 +1,4 @@
 // store.js
-export class Store {
+export class Repository {
 	init(){};
 };

@@ -24,6 +24,15 @@ An interface responsible for view data. Opaque and light weight, receives data a
 ### View
 Lightweight objects that simply render model data.
 
+### Plugin
+A module that exposes one or more aspects and services within the application.
+
+### Aspect
+The application is made up of aspects. A given plugin may expose it's own aspects for inclusion within the application. Comes in both intrinsic as well as plugin-specific flavors.
+
+### Service
+A task-specific facility. Comes in both intrinsic as well as plugin-specific flavors.
+
 ## Build Process
 
 ### Writing code

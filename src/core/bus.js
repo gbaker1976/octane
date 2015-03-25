@@ -3,4 +3,4 @@ export class MessageBus extends PubSub {
 
 };
 
-import { PubSub } from 'pubsub';
+import { PubSub } from 'core/pubsub';
