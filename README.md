@@ -21,6 +21,12 @@ An interface responsible for mapping API properties to model properties. Can map
 ### View Model
 An interface responsible for view data. Opaque and light weight, receives data and published changes that views respond to.
 
+### Repository
+Serves as a facade for all data retreival, both local and remote. A multition that services requests for view models, it maintains a registry of workers, mappers and view models. When a model is requested, if it does not exist, the repository spins up the appropriate worker to fetch the data and then feeds that into the appropriate mapper. Once the data is in hand, it hydrates the proper model and returns it.
+
+### Transaction
+Represents a unit of work that performs data manipulation across many models and possibly across many APIs.
+
 ### View
 Lightweight objects that simply render model data.
 
