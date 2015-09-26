@@ -1,11 +1,11 @@
-import { Factory } from "core/factory";
-import { View } from "core/view";
-import { Repository } from "core/repository";
-import { MessageBus } from "core/bus";
-import { Registry } from "core/registry";
-import { Aspect } from "core/aspect";
-import { Worker } from "core/worker";
-import { Mapper } from "core/mapper";
+import { Factory } from "factory";
+import { View } from "ui/view";
+import { Repository } from "data/repository";
+import { MessageBus } from "bus";
+import { Registry } from "registry";
+import { Aspect } from "aspect";
+import { Worker } from "worker";
+import { Mapper } from "data/mapper";
 
 var _registry = new Registry();
 

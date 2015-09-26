@@ -5,4 +5,4 @@ export class PubSub extends Registry {
 	off(){};
 };
 
-import { Registry } from 'core/registry';
+import { Registry } from 'registry';
