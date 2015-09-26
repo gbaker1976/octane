@@ -22,6 +22,7 @@
     "gulp-concat": "^2.5.2",
     "gulp-es6-module-transpiler": "^0.2.1",
     "gulp-es6-transpiler": "^1.0.1",
+    "gulp-nightwatch": "git://github.com/gbaker1976/gulp-nightwatch.git",
     "gulp-rm": "^1.0.0",
     "gulp-tap": "^0.1.3",
     "gulp-uglify": "^1.1.0"

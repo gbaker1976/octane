@@ -8,6 +8,7 @@ var transpile  = require( 'gulp-es6-transpiler' );
 var formatter = require( 'es6-module-transpiler-amd-formatter' );
 var tap = require( 'gulp-tap' );
 var fs = require( 'fs' );
+var nightwatch = require( 'gulp-nightwatch' );
 
 var PATHS = {
 	src: 'src',
@@ -61,4 +62,21 @@ gulp.task( 'test', [ 'clean-dist', 'module-build' ], function() {
 	gulp.watch( '.' + SRC_FILES_GLOB, { cwd: 'src' }, [ 'src-watch' ] );
 });
 
-gulp.task( 'default', [ 'clean-dist', 'module-build', 'test' ] );
+gulp.task( 'test', function() {
+  return gulp.src('')
+    .pipe(nightwatch({
+      configFile: 'nightwatch.json'
+    }));
+});
+
+gulp.task( 'unittest', function() {
+  return gulp.src('')
+    .pipe(nightwatch({
+      configFile: 'nightwatch.json',
+      cliArgs : {
+          env: 'unittest'
+      }
+    }));
+});
+
+gulp.task( 'default', [ 'clean-dist', 'module-build' ] );
