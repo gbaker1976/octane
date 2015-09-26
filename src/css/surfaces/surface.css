@@ -1,0 +1,17 @@
+[data-surface]{
+
+	flex: 1 0 auto;
+
+	&[data-type="card"]{
+		margin:5px;
+		min-height:100px;
+
+		&:hover {
+
+		}
+
+		&.large {
+			min-height:300px;
+		}
+	}
+}

@@ -16,6 +16,9 @@
   "author": "CloudPages Squad",
   "license": "Propietary",
   "devDependencies": {
+    "postcss-nested": "^0.2.2",
+    "gulp-cssnext": "^1.0.0",
+    "gulp-postcss": "^4.0.3",
     "browser-sync": "^2.9.6",
     "es6-module-transpiler-amd-formatter": "^0.3.0",
     "gulp": "^3.8.11",

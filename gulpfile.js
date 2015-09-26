@@ -9,25 +9,39 @@ var formatter = require( 'es6-module-transpiler-amd-formatter' );
 var tap = require( 'gulp-tap' );
 var fs = require( 'fs' );
 var nightwatch = require( 'gulp-nightwatch' );
+var postcss = require( 'gulp-postcss' );
+var postcssNested = require( 'postcss-nested' );
+var cssnext = require( 'gulp-cssnext' );
 
 var PATHS = {
-	src: 'src',
-	dist: 'dist',
-    lib: 'lib'
+	srcJs: 'src/js',
+	distJs: 'dist/js',
+    lib: 'lib',
+    srcCss: 'src/css',
+    distCss: 'dist/css'
 };
 
 var AMD_LIB_PATH = PATHS.lib + '/almond.js';
-var SRC_FILES_GLOB = '/**/*.js';
+var SRC_FILES_GLOB = '/**/*';
 var OUTPUT_FILE_NAME = 'octane.min.js';
 
+gulp.task( 'css-build', function(){
+	return gulp.src( PATHS.srcCss + '/_all.css' )
+	.pipe( cssnext({
+		compress: false
+	}))
+	.pipe( postcss( [ postcssNested ] ) )
+	.pipe( gulp.dest( PATHS.distCss ) )
+});
+
 gulp.task( 'module-build', function() {
-    return gulp.src( [ PATHS.src + SRC_FILES_GLOB ] )
+    return gulp.src( [ PATHS.srcJs + SRC_FILES_GLOB ] )
 		.pipe(moduleTranspile({
 			formatter: formatter,
-			basePath: PATHS.src
+			basePath: PATHS.srcJs
 		}))
 		.pipe(transpile({
-			basePath: PATHS.src,
+			basePath: PATHS.srcJs,
 			globals: {
 				'define' : false
 			}
@@ -42,17 +56,17 @@ gulp.task( 'module-build', function() {
             )
         }))
 		.pipe( uglify() )
-        .pipe( gulp.dest( PATHS.dist ) );
+        .pipe( gulp.dest( PATHS.distJs ) );
 });
 
-gulp.task( 'clean-dist', function() {
-  return gulp.src( PATHS.dist + '/**/*', { read: false })
+gulp.task( 'clean', function() {
+  return gulp.src( [ PATHS.distJs + '/**/*', PATHS.distCss + '/**/*' ], { read: false })
     .pipe( rm() );
 });
 
-gulp.task( 'src-watch', [ 'clean-dist', 'module-build' ], browserSync.reload );
+gulp.task( 'src-watch', [ 'clean', 'module-build', 'css-build' ], browserSync.reload );
 
-gulp.task( 'test', [ 'clean-dist', 'module-build' ], function() {
+gulp.task( 'test', [ 'clean', 'module-build' ], function() {
 	browserSync({
 		server: {
 			baseDir: [ 'test', 'dist' ]
@@ -79,4 +93,4 @@ gulp.task( 'unittest', function() {
     }));
 });
 
-gulp.task( 'default', [ 'clean-dist', 'module-build' ] );
+gulp.task( 'default', [ 'clean', 'module-build', 'css-build' ] );
