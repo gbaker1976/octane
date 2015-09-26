@@ -17,6 +17,7 @@ var PATHS = {
 
 var AMD_LIB_PATH = PATHS.lib + '/almond.js';
 var SRC_FILES_GLOB = '/**/*.js';
+var OUTPUT_FILE_NAME = 'octane.min.js';
 
 gulp.task( 'module-build', function() {
     return gulp.src( [ PATHS.src + SRC_FILES_GLOB ] )
@@ -30,7 +31,7 @@ gulp.task( 'module-build', function() {
 				'define' : false
 			}
         }))
-		.pipe( concat( 'octane.min.js' ) )
+		.pipe( concat( OUTPUT_FILE_NAME ) )
         .pipe( tap(function( file ){
             file.contents = Buffer.concat(
                 [
