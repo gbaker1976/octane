@@ -1,22 +1,18 @@
 import { Factory } from "factory";
-import { View } from "ui/view";
-import { Repository } from "data/repository";
-import { MessageBus } from "bus";
+import { Surface } from "ui/surface";
+import { Repository } from "data/tanker";
+import { Pipeline } from "pipeline";
 import { Registry } from "registry";
-import { Aspect } from "aspect";
-import { Worker } from "worker";
-import { Mapper } from "data/mapper";
+import { Foreman } from "foreman";
 
 var _registry = new Registry();
 
 class Octane {
 	get Factory() { return Factory };
-	get MessageBus() { return MessageBus };
-	get Repository() { return Repository };
-	get View() { return View };
-	get Aspect() { return Aspect };
-	get Worker() { return Worker };
-	get Mapper() { return Mapper };
+	get Pipeline() { return Pipeline };
+	get Tanker() { return Tanker };
+	get Surface() { return Surface };
+	get Foreman() { return Foreman };
 };
 
 return Octane;
