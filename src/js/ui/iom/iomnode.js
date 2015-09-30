@@ -28,6 +28,14 @@ export class IomNode {
         this._type = consts.NODETYPES.IOM;
     };
 
+    _renderStartTag(){
+        return node.name ? '<' + node.name + '>' : '';
+    };
+
+    _renderEndTag(){
+        return node.name ? '</' + node.name + '>' : '';
+    };
+
     _deepRender( iom ){
         let renderer = ( node ) => {
             let html = '';
@@ -40,7 +48,7 @@ export class IomNode {
                     break;
                 default :
                     if ( node.name ) {
-                        html += '<' + node.name + '>';
+                        html += this._renderStartTag();
                     }
 
                     while ( n = node.children[ i++ ] ) {
@@ -48,7 +56,7 @@ export class IomNode {
                     }
 
                     if ( node.name ) {
-                        html += '</' + node.name + '>';
+                        html += this._renderEndTag();
                     }
             }
 
