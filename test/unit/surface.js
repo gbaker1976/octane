@@ -1,11 +1,17 @@
-var surface = require( '../../dist/octane.min' );
+import { Surface } from '../../src/js/ui/surface';
+import { TextNode } from '../../src/js/ui/iom/textnode';
+let assert = require( 'assert' );
 
-module.exports = {
-  'Surface Test' : function (client, done) {
-    client.assert.ok('TEST');
+describe( 'Surface Test', function() {
 
-    setTimeout(function() {
-      done();
-    }, 500);
-  }
-};
+  describe( '#render()', function () {
+    it( 'should render a text node', function ( done ) {
+        let node = new TextNode( 'test' );
+        let sfc = new Surface( 'surface' );
+        sfc.children = [node];
+        assert( node.render() === 'test', 'Surface does not render text node!' );
+        done();
+    });
+  });
+
+});

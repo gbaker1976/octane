@@ -12,13 +12,19 @@ var nightwatch = require( 'gulp-nightwatch' );
 var postcss = require( 'gulp-postcss' );
 var postcssNested = require( 'postcss-nested' );
 var cssnext = require( 'gulp-cssnext' );
+var mocha = require( 'gulp-mocha' );
+var istanbul = require( 'gulp-istanbul' );
+var isparta = require( 'isparta' );
+
+require( 'babel/register' );
 
 var PATHS = {
 	srcJs: 'src/js',
 	distJs: 'dist/js',
     lib: 'lib',
     srcCss: 'src/css',
-    distCss: 'dist/css'
+    distCss: 'dist/css',
+    testJs: 'test/unit'
 };
 
 var AMD_LIB_PATH = PATHS.lib + '/almond.js';
@@ -78,19 +84,27 @@ gulp.task( 'test', [ 'clean', 'module-build' ], function() {
 
 gulp.task( 'test', function() {
   return gulp.src('')
-    .pipe(nightwatch({
+    .pipe( nightwatch({
       configFile: 'nightwatch.json'
     }));
 });
 
-gulp.task( 'unittest', function() {
-  return gulp.src('')
-    .pipe(nightwatch({
-      configFile: 'nightwatch.json',
-      cliArgs : {
-          env: 'unittest'
-      }
-    }));
+gulp.task( 'unittest', function( done ) {
+    return gulp.src( [ PATHS.testJs + '/**/*.js' ], {read: false} )
+        .pipe( mocha(
+            {
+                reporter: 'spec',
+                compilers: 'js:babel/register'
+            }
+        ));
+});
+
+gulp.task( 'istanbul', function(){
+    return gulp.src( [ PATHS.srcJs + SRC_FILES_GLOB ] )
+        .pipe( istanbul({
+            instrumenter: isparta.Instrumenter,
+            includeUntested: true
+        }));
 });
 
 gulp.task( 'default', [ 'clean', 'module-build', 'css-build' ] );
