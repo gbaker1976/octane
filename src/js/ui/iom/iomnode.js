@@ -27,46 +27,4 @@ export class IomNode {
         this.children = [];
         this._type = consts.NODETYPES.IOM;
     };
-
-    _renderStartTag(){
-        return node.name ? '<' + node.name + '>' : '';
-    };
-
-    _renderEndTag(){
-        return node.name ? '</' + node.name + '>' : '';
-    };
-
-    _deepRender( iom ){
-        let renderer = ( node ) => {
-            let html = '';
-            let i = 0;
-            let n;
-
-            switch ( node.type ) {
-                case consts.NODETYPES.TEXT :
-                    html = node.render();
-                    break;
-                default :
-                    if ( node.name ) {
-                        html += this._renderStartTag();
-                    }
-
-                    while ( n = node.children[ i++ ] ) {
-                        html += renderer( n );
-                    }
-
-                    if ( node.name ) {
-                        html += this._renderEndTag();
-                    }
-            }
-
-            return html;
-        };
-
-        return renderer( iom );
-    };
-
-    render(){
-        return this._deepRender( this );
-    };
 };

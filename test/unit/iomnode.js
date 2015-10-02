@@ -6,32 +6,6 @@ let assert = require( 'assert' );
 
 describe( 'IomNode Test', function() {
 
-  describe( '#render()', function () {
-    it( 'should render node tree', function ( done ) {
-        let node1 = new IomNode( 'div' );
-        let node2 = new IomNode( 'div' );
-        let textNode = new TextNode( 'foo' );
-
-        node2.children = [textNode];
-        node1.children = [node2];
-
-        assert( node1.render() === '<div><div>foo</div></div>', 'IomNode does not render node tree!' );
-        done();
-    });
-
-    it( 'should deep render node tree', function ( done ) {
-        let node1 = new IomNode( 'div' );
-        let node2 = new IomNode( 'div' );
-        let textNode = new TextNode( 'foo' );
-
-        node2.children = [textNode];
-        node1.children = [node2];
-
-        assert( node1._deepRender( node1 ) === '<div><div>foo</div></div>', 'IomNode does not deep render node tree!' );
-        done();
-    });
-  });
-
   describe( '#properties', function () {
     it( 'should assign children', function ( done ) {
         let node1 = new IomNode( 'div' );
