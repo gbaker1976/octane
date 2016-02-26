@@ -6,29 +6,20 @@ describe( 'Surface Test', function() {
 
   describe( '#bind()', function () {
     it( 'should render a text node', function ( done ) {
-        let repository = new Repository( { name: 'Fred' } );
-        let sfc;
-        let conduit;
-
-        repository.defineSchema( 'test-schema', {
-            map: [{
-                lvalue: 'name',
-                rvalue: 'firstName'
-            }]
-        });
-
-        conduit = repository.getConduitBySchema( 'test-schema' );
-
-        sfc = new Surface( 'testSurface', {
-            conduit: conduit
-        });
-
-        sfc.listen( 'render', function( node ){
+        // let repository = new Repository( { name: 'Fred' } );
+        // let sfc;
+        // let conduit;
+        //
+        // conduit = repository.getConduit();
+        //
+        // (new Surface( 'testSurface', {
+        //     conduit: conduit
+        // })).listen( 'render', function( node ){
             assert( node === '', 'Surface does not render text node!' );
             done();
-        });
-
-        conduit.write( 'name', 'Bob' );
+        // });
+        //
+        // conduit.write( 'name', 'Bob' );
     });
   });
 

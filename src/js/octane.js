@@ -7,12 +7,10 @@ import { Foreman } from "foreman";
 
 var _registry = new Registry();
 
-class Octane {
+export class Octane {
 	get Factory() { return Factory };
 	get Pipeline() { return Pipeline };
 	get Tanker() { return Tanker };
 	get Surface() { return Surface };
 	get Foreman() { return Foreman };
 };
-
-return Octane;

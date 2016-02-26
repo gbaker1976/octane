@@ -25,4 +25,14 @@ export class Repository {
         return out;
     };
 
+    defineSchema( name, otions ) {
+        options = options || {};
+
+
+    };
+
+    getConduit(){
+        
+    };
+
 };
