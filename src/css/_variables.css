@@ -1,4 +1,12 @@
 :root {
+	/* borders */
     --default-button-corner-radius: 5px;
+
+	/* colors */
 	--primary-color: red;
+	--secondary-color: blue;
+	--tertiary-color: red;
+	--primary-accent-color: red;
+	--secondary-accent-color: red;
+	--tertiary-accent-color: red;
 }
