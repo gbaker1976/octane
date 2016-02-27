@@ -1,2 +1,7 @@
 @import "list";
 @import "canvas";
+
+.button, button {
+	border-radius: var(--default-button-corner-radius);
+	background-color: var(--primary-color);
+}

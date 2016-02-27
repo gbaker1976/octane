@@ -40,5 +40,9 @@
     "mocha": "^2.3.3",
     "phantomjs": "^1.9.18",
     "should": "^7.1.0"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "postcss-custom-properties": "^5.0.0"
   }
 }

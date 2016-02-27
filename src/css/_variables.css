@@ -1,3 +1,4 @@
 :root {
-    
+    --default-button-corner-radius: 5px;
+	--primary-color: red;
 }

@@ -11,6 +11,7 @@ var postcssNested = require( 'postcss-nested' );
 var postcssImport = require( 'postcss-import' );
 var postcssUrl = require( 'postcss-url' );
 var postcssReporter = require( 'postcss-reporter' );
+var postcssCustomProperties = require( 'postcss-custom-properties' );
 var cssNano = require( 'gulp-cssnano' );
 
 var mocha = require( 'gulp-mocha' );
@@ -31,7 +32,7 @@ var OUTPUT_FILE_NAME = 'octane.min.js';
 
 gulp.task( 'css-build', function(){
 	return gulp.src( PATHS.srcCss + '/_all.css' )
-    .pipe( postcss( [ postcssNested, postcssUrl, postcssImport, postcssReporter ] ) )
+    .pipe( postcss( [ postcssNested, postcssUrl, postcssImport, postcssReporter, postcssCustomProperties ] ) )
     .pipe( cssNano() )
 	.pipe( gulp.dest( PATHS.distCss ) )
 });
