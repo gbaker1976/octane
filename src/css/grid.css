@@ -1,25 +1,90 @@
-[data-container] {
-	height:100vh;
-
+.g-box {
 	display:flex;
 	flex: 1;
-	flex-flow:column nowrap;
-}
+	flex-flow:row wrap;
 
-[data-column]{
+	& .g-col {
+		display:flex;
+		flex: 1;
+		flex-flow:column wrap;
+	}
 
-	display:flex;
-	flex: 1;
-	flex-flow:column wrap;
-}
+	& .g-row {
+		display:flex;
+		flex: 1;
+		flex-flow:row wrap;
+	}
 
-[data-row]{
+	& .g-cell {
+		flex: 1;
 
-	display:flex;
-	flex: 1;
-	flex-flow:row nowrap;
-}
+		margin: var(--grid-gutter);
+		background: #e6e6e6;
 
-[data-cell] {
-	flex: 1;
+	}
+
+	& .a-center {
+		align-items: center;
+		justify-content: center;
+	}
+
+	@media (min-width: 320px) and (max-width: 500px) {
+		@mixin gwidth 1, 1, 1;
+		@mixin gwidth 2, 1, 1;
+		@mixin gwidth 3, 1, 1;
+		@mixin gwidth 4, 1, 1;
+		@mixin gwidth 5, 1, 1;
+		@mixin gwidth 6, 1, 1;
+		@mixin gwidth 7, 1, 1;
+		@mixin gwidth 8, 1, 1;
+		@mixin gwidth 9, 1, 1;
+		@mixin gwidth 10, 1, 1;
+		@mixin gwidth 11, 1, 1;
+		@mixin gwidth 12, 1, 1;
+	}
+
+	@media (min-width: 501px) and (max-width: 800px) {
+		@mixin gwidth 1, 1, 6;
+		@mixin gwidth 2, 2, 6;
+		@mixin gwidth 3, 3, 6;
+		@mixin gwidth 4, 4, 6;
+		@mixin gwidth 5, 5, 6;
+		@mixin gwidth 6, 6, 6;
+		@mixin gwidth 7, 7, 6;
+		@mixin gwidth 8, 8, 6;
+		@mixin gwidth 9, 9, 6;
+		@mixin gwidth 10, 10, 6;
+		@mixin gwidth 11, 11, 6;
+		@mixin gwidth 12, 12, 6;
+	}
+
+	@media (min-width: 801px) and (max-width: 1200px) {
+		@mixin gwidth 1, 1, 10;
+		@mixin gwidth 2, 2, 10;
+		@mixin gwidth 3, 3, 10;
+		@mixin gwidth 4, 4, 10;
+		@mixin gwidth 5, 5, 10;
+		@mixin gwidth 6, 6, 10;
+		@mixin gwidth 7, 7, 10;
+		@mixin gwidth 8, 8, 10;
+		@mixin gwidth 9, 9, 10;
+		@mixin gwidth 10, 10, 10;
+		@mixin gwidth 11, 11, 10;
+		@mixin gwidth 12, 12, 10;
+	}
+
+	@media (min-width: 1201px) {
+		@mixin gwidth 1, 1;
+		@mixin gwidth 2, 2;
+		@mixin gwidth 3, 3;
+		@mixin gwidth 4, 4;
+		@mixin gwidth 5, 5;
+		@mixin gwidth 6, 6;
+		@mixin gwidth 7, 7;
+		@mixin gwidth 8, 8;
+		@mixin gwidth 9, 9;
+		@mixin gwidth 10, 10;
+		@mixin gwidth 11, 11;
+		@mixin gwidth 12, 12;
+	}
 }

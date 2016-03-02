@@ -1,0 +1,7 @@
+@define-mixin gwidth $num, $multiplier: 0, $size: 12, $gutter: 0 {
+	& .w-$(num) {
+		width:calc((100% / $size) * $multiplier - $gutter);
+		flex:none!important;
+		@mixin-content;
+	}
+}

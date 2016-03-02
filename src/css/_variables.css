@@ -2,6 +2,9 @@
 	/* borders */
     --default-button-corner-radius: 5px;
 
+	/* grid */
+	--grid-gutter: .2rem;
+
 	/* colors */
 	--primary-color: red;
 	--secondary-color: blue;

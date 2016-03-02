@@ -6,12 +6,29 @@
         <link rel="stylesheet" href="css/_all.css" type="text/css" />
     </head>
     <body>
-        <div data-container>
-            <div data-row>
-                <div data-cell>foo</div>
-                <div data-cell>bar</div>
-                <div data-cell><button>foo</button></div>
+        <div class="g-box">
+            <div class="g-col w-4">
+                <div class="g-cell">foo</div>
+                <div class="g-cell">bar</div>
+				<div class="g-cell">baz</div>
             </div>
+			<div class="g-col w-8">
+				<div class="g-row">
+	                <div class="g-cell">foo</div>
+	                <div class="g-cell">bar</div>
+	                <div class="g-cell"><button>bar</button></div>
+	            </div>
+				<div class="g-row">
+					<div class="g-cell">foo</div>
+					<div class="g-cell">bar</div>
+					<div class="g-cell"><button>bar</button></div>
+				</div>
+			</div>
+			<div class="g-row">
+				<div class="g-cell w-25">foo</div>
+				<div class="g-cell w-50">bar</div>
+				<div class="g-cell"><button>bar</button></div>
+			</div>
         </div>
     </body>
 </html>
