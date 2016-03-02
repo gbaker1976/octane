@@ -70,8 +70,9 @@ gulp.task( 'workbench', [ 'start-server' ], function() {
         browser: 'google chrome'
 	});
 
-    gulp.watch( [ 'src/js/**/*.js', 'views/**/*.html' ],  [ 'module-build', browserSync.reload ] );
-	gulp.watch( [ 'src/css/**/*.css' ],  [ 'css-build', browserSync.reload] );
+    gulp.watch( [ 'src/js/**/*.js' ], [ 'module-build', browserSync.reload ] );
+	gulp.watch( [ 'src/css/**/*.css' ], [ 'css-build', browserSync.reload] );
+	gulp.watch( [ 'views/**/*.html' ], browserSync.reload );
 });
 
 gulp.task( 'clean', function() {

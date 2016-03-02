@@ -11,8 +11,7 @@
 
 	& .g-row {
 		display:flex;
-		flex: 1;
-		flex-flow:row wrap;
+		width:100%;
 	}
 
 	& .g-cell {
@@ -28,7 +27,16 @@
 		justify-content: center;
 	}
 
-	@media (min-width: 320px) and (max-width: 500px) {
+	@media (max-width: 500px) {
+		& .g-row {
+			flex-flow:column wrap;
+		}
+
+		& .g-cell {
+			flex:none !important;
+			width:100%;
+		}
+
 		@mixin gwidth 1, 1, 1;
 		@mixin gwidth 2, 1, 1;
 		@mixin gwidth 3, 1, 1;
@@ -43,22 +51,23 @@
 		@mixin gwidth 12, 1, 1;
 	}
 
-	@media (min-width: 501px) and (max-width: 800px) {
-		@mixin gwidth 1, 1, 6;
-		@mixin gwidth 2, 2, 6;
-		@mixin gwidth 3, 3, 6;
-		@mixin gwidth 4, 4, 6;
-		@mixin gwidth 5, 5, 6;
-		@mixin gwidth 6, 6, 6;
-		@mixin gwidth 7, 7, 6;
-		@mixin gwidth 8, 8, 6;
-		@mixin gwidth 9, 9, 6;
-		@mixin gwidth 10, 10, 6;
-		@mixin gwidth 11, 11, 6;
-		@mixin gwidth 12, 12, 6;
+	@media (min-width: 501px) {
+
+		@mixin gwidth 1, 1;
+		@mixin gwidth 2, 2;
+		@mixin gwidth 3, 3;
+		@mixin gwidth 4, 4;
+		@mixin gwidth 5, 5;
+		@mixin gwidth 6, 6;
+		@mixin gwidth 7, 7;
+		@mixin gwidth 8, 8;
+		@mixin gwidth 9, 9;
+		@mixin gwidth 10, 10;
+		@mixin gwidth 11, 11;
+		@mixin gwidth 12, 12;
 	}
 
-	@media (min-width: 801px) and (max-width: 1200px) {
+	/*@media (min-width: 801px) and (max-width: 1200px) {
 		@mixin gwidth 1, 1, 10;
 		@mixin gwidth 2, 2, 10;
 		@mixin gwidth 3, 3, 10;
@@ -86,5 +95,5 @@
 		@mixin gwidth 10, 10;
 		@mixin gwidth 11, 11;
 		@mixin gwidth 12, 12;
-	}
+	}*/
 }
