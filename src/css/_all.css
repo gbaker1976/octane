@@ -7,6 +7,4 @@
 @import "surfaces/_all";
 @import "controls/controls";
 @import "nav";
-@import "svg";
 @import "interactions";
-@import "typography";

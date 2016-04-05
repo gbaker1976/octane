@@ -87,7 +87,7 @@ gulp.task( 'clean', function() {
 //     }));
 // });
 
-gulp.task( 'unittest', function( done ) {
+gulp.task( 'unittest', [ 'default' ], function( done ) {
     return gulp.src( [ PATHS.testJs + '/**/*.js' ], {read: false} )
         .pipe( mocha(
             {

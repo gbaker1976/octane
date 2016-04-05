@@ -1,4 +1,4 @@
-import { DataProvider } from '../../src/js/ui/dataprovider';
+let Octane = require( '../../dist/js/octane.min' );
 let assert = require( 'assert' );
 
 describe( 'Data Provider Test', function() {
@@ -6,7 +6,7 @@ describe( 'Data Provider Test', function() {
   describe( 'Static data test', function () {
     it( 'should output static data', function ( done ) {
 
-        let prvdr = new DataProvider({
+        let prvdr = new Octane.DataProvider({
             name: 'Fred'
         });
 
