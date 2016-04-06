@@ -1,14 +1,7 @@
-//import { EmptyNode } from '../iom/emptynode';
 import { IomNode } from '../ui/iom/iomnode';
 
-/*
-	new Surface({
-		conduit: Conduit.share(new Query( 'name=*' ));
-	});
-*/
-
 export class Surface extends IomNode {
-	constructor( options ){
+	constructor (...surfaces) {
 		options || ( options = {} );
 
 		if ( options.conduit ) {
@@ -16,7 +9,7 @@ export class Surface extends IomNode {
 		}
 	};
 
-    set( conduit ){
-		conduit.on( 'update', this.handleUpdate.bind(this) );
-	};
+	setData (data) {
+
+	}
 };
