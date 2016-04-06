@@ -7,16 +7,12 @@ class Conduit {
 
     setData(data){
     	let self = this;
-    	Object.keys(this.data).forEach((k) => {
-        	if ( data[k] ) {
-                if ( data[k] !== self.data[k] ) {0
-					self.handlers.forEach((expr, h) => {
-                    	if ( expr[0](data) ) {
-							h(data);
-                        }
-                    });
-                }
-                self.data[k] = data[k];
+    	Object.keys(data).forEach((k) => {
+            self.data[k] = data[k];
+        });
+        self.handlers.forEach((expr, h) => {
+            if ( expr[0](self.data) ) {
+                h(self.data);
             }
         });
     };
@@ -69,7 +65,7 @@ class Conduit {
             buf += [' d.', expr.leftOp, op, '"', expr.rightOp, '"'].join('');
         });
 
-        return eval( '(function(d){var r=false;r=(' + buf + ');return r;});' );
+        return eval( '(function(d){return (' + buf + ');});' );
     };
 };
 
@@ -233,4 +229,4 @@ var q = Query.merge( 'or', new Query('name="fred"'), new Query('dog="rover"') );
 var handler = (d) => { console.log(d.name) };
 var c = new Conduit({name: 'barney'})
 c.registerQueryHandler(handler, q);
-c.setData({name: 'fred'});
+c.setData({name: 'fred', dog: 'dino'});
