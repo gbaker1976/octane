@@ -87,16 +87,6 @@ gulp.task( 'clean', function() {
 //     }));
 // });
 
-gulp.task( 'unittest', [ 'default' ], function( done ) {
-    return gulp.src( [ PATHS.testJs + '/**/*.js' ], {read: false} )
-        .pipe( mocha(
-            {
-                reporter: 'spec',
-                compilers: 'js:babel/register'
-            }
-        ));
-});
-
 gulp.task( 'istanbul', function(){
     return gulp.src( [ PATHS.srcJs + SRC_FILES_GLOB ] )
         .pipe( istanbul({
