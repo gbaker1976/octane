@@ -5,8 +5,8 @@ export class TextNode extends IomNode {
     constructor( text ){
         super();
 		var priv = this.props.get(this);
-		priv.text = val;
-		priv.name = val;
+		priv.text = text;
+		priv.name = 'text';
         priv.type = consts.NODETYPES.TEXT;
     };
 

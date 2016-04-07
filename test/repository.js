@@ -1,9 +1,10 @@
-import { Repository } from '../../src/js/ui/repository';
+import 'babel-polyfill';
+import { Repository } from '../src/js/data/repository';
 let assert = require( 'assert' );
 
 describe( 'Repository Test', function() {
 
-  describe( 'Static data', function () {
+  describe( 'Static data', () => {
     it( 'should read name', function ( done ) {
         let repository = new Repository( { name: 'Fred' } );
 
@@ -11,7 +12,7 @@ describe( 'Repository Test', function() {
         done();
     });
 
-    it( 'should read first name and last name', function ( done ) {
+    it( 'should read first name and last name', ( done ) => {
         let repository = new Repository( { firstname: 'Fred', lastname: 'Flintstone' } );
         let data = repository.read( [ 'firstname', 'lastname' ] );
 
@@ -20,7 +21,7 @@ describe( 'Repository Test', function() {
     });
   });
 
-  describe( 'Generic conduit', function () {
+  describe( 'Generic conduit', () => {
       if( 'should bind to conduit', function( done ){
           let repository = new Repository( { name: 'Fred' } );
           let conduit = repository.getConduit();

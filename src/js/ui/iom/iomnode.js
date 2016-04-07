@@ -23,6 +23,7 @@ export class IomNode {
     };
 
 	constructor( options ) {
+		options || (options = {});
 		this.props = new WeakMap([]);
 		this.props.set(this, Object.assign({}, options, {
 			type: options.type || consts.NODETYPES.IOM
