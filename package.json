@@ -1,6 +1,6 @@
 {
   "name": "octane",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Event driven UI framework that handles inter-layer messaging, service registry, service lookup and state management ",
   "main": "index.js",
   "directories": {
