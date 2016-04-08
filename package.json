@@ -1,6 +1,6 @@
 {
   "name": "octane",
-  "version": "0.1.2",
+  "version": "0.1.1",
   "description": "Event driven UI framework that handles inter-layer messaging, service registry, service lookup and state management ",
   "main": "index.js",
   "directories": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "node ./scripts/test.js",
-    "preversion": "gulp"
+    "preversion": "node ./scripts/test.js && gulp"
   },
   "repository": {
     "type": "git",
