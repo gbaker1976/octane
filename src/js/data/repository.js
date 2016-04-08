@@ -31,8 +31,4 @@ export class Repository {
 
     };
 
-    getConduit(){
-        
-    };
-
 };

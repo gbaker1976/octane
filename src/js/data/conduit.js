@@ -1,5 +1,12 @@
 'use strict';
-
+/*
+	var c = new Conduit({name: 'Galaga'});
+	c.registerQueryHandler(
+		(data) => { console.log(data.name) },
+		new Query('name="Megaman"')
+	);
+	c.setData({name: 'Megaman'});
+*/
 class Conduit {
 	constructor(data){
 		this.data = data;
