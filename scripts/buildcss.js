@@ -9,13 +9,26 @@ var postcssMixins = require( 'postcss-mixins' );
 var postcssCustomProperties = require( 'postcss-custom-properties' );
 var fs = require( 'fs' );
 
-fs.readFile( 'src/css/_all.css', function( err, css ){
-	postcss([ postcssUrl, postcssImport, postcssMixins, postcssNested, postcssCustomProperties, postcssReporter, cssnano ])
-    	.process( css, { from: 'src/css/_all.css', to: 'dist/css/octane.css' })
-    		.then(function (result) {
-        		fs.writeFileSync( 'dist/css/octane.css', result.css);
-        		if ( result.map ) {
-					fs.writeFileSync('dist/css/.css.map', result.map);
-				}
-    		});
-});
+var builder = module.exports = function ( cb ) {
+
+	cb || (cb = function(){});
+
+	console.log( 'building css...' );
+
+	fs.readFile( 'src/css/_all.css', function( err, css ){
+		postcss([ postcssUrl, postcssImport, postcssMixins, postcssNested, postcssCustomProperties, postcssReporter, cssnano ])
+	    	.process( css, { from: 'src/css/_all.css', to: 'dist/css/octane.css' })
+	    		.then(function (result) {
+	        		fs.writeFileSync( 'dist/css/octane.css', result.css );
+	        		if ( result.map ) {
+						fs.writeFileSync('dist/css/.css.map', result.map);
+					}
+					cb();
+	    		});
+	});
+}
+
+// detect if called directly
+if ( !module.parent ) {
+	builder();
+}

@@ -1,4 +1,4 @@
-import { consts } from '../../ui/iom/consts';
+import { consts } from 'consts';
 
 export class IomNode {
 

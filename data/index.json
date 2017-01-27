@@ -1,0 +1,49 @@
+{
+	"name": "html",
+	"type": "element",
+	"context": "*",
+	"children": [
+		{
+			"name": "head",
+			"type": "element",
+			"context": "*",
+			"children": [
+				{
+					"name": "title",
+					"type": "element",
+					"context": "*",
+					"children": [
+						{
+							"type": "text",
+							"value": "The Page"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "body",
+			"type": "element",
+			"context": "*",
+			"children": [
+				{
+					"name": "h1",
+					"type": "element",
+					"context": "*",
+					"children": [
+						{
+							"type": "text",
+							"context": "desktop",
+							"value": "Desktop"
+						},
+						{
+							"type": "text",
+							"context": "mobile",
+							"value": "Mobile"
+						}
+					]
+				}
+			]
+		}
+	]
+}

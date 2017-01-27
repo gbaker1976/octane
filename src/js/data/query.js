@@ -1,7 +1,7 @@
 'use strict';
 
 // new Query( 'name=* and dog='rover' );
-class Query {
+export class Query {
     constructor(qry) {
         qry || (qry = '');
         this.query = qry;
@@ -156,8 +156,8 @@ class Query {
 };
 
 //var q = new Query('mand="foo" and porchid="rand" or flower="orchid"');
-var q = Query.merge( 'or', new Query('name="fred"'), new Query('dog="rover"') );
-var handler = (d) => { console.log(d.name) };
-var c = new Conduit({name: 'barney'})
-c.registerQueryHandler(handler, q);
-c.setData({name: 'fred', dog: 'dino'});
+// var q = Query.merge( 'or', new Query('name="fred"'), new Query('dog="rover"') );
+// var handler = (d) => { console.log(d.name) };
+// var c = new Conduit({name: 'barney'})
+// c.registerQueryHandler(handler, q);
+// c.setData({name: 'fred', dog: 'dino'});

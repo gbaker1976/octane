@@ -1,7 +1,8 @@
-var express = require( 'express' );
-var html = require( './lib/html-engine' );
-var app = express();
-var port;
+let express = require( 'express' );
+let html = require( './lib/html-engine' );
+let adapter = require( './lib/express-adapter' );
+let app = express();
+let port;
 
 if ( '-p' === process.argv[2] ) {
 	if ( process.argv[3] ) {
@@ -24,10 +25,8 @@ app.engine( 'html', html );
 app.set( 'view engine', 'html' );
 app.use( express.static( 'dist' ) );
 
-app.get( '/', function( req, res, next ){
-    res.render( 'index' );
-});
+app.get( '/', adapter( 'index' ));
 
-app.listen( port, function() {
+app.listen( port, () => {
 	console.log( 'Mogul App listening on port: %d', port );
 });

@@ -1,14 +1,20 @@
 var browserSync = require( 'browser-sync' ).create();
+var buildCss = require( './buildcss' );
+var buildJs = require( './buildjs' );
 
 browserSync.watch( 'src/css/**/*.css', function (event, file) {
 	if ( event === 'change' ) {
-		browserSync.reload( '*.css' );
+		buildCss(function(){
+			browserSync.reload( '*.css' );
+		});
 	}
 });
 
 browserSync.watch( 'src/js/**/*.js', function (event, file) {
 	if ( event === 'change' ) {
-		browserSync.reload( '*.js' );
+		buildJs(function(){
+			browserSync.reload( '*.js' );
+		});
 	}
 });
 

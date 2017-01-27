@@ -7,7 +7,7 @@
 	);
 	c.setData({name: 'Megaman'});
 */
-class Conduit {
+export class Conduit {
 	constructor(data){
 		this.data = data;
 	};

@@ -1,4 +1,4 @@
-import { IomNode } from '../ui/iom/iomnode';
+import { IomNode } from 'iom/iomnode';
 
 export class Surface extends IomNode {
 	constructor (...surfaces) {

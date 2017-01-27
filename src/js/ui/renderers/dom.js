@@ -1,6 +1,6 @@
-import { BaseRenderer } from '../../src/js/ui/renderers/base';
+import { BaseRenderer } from 'base';
 
-export class DomRenderer extends BaseRenderer {
+class DomRenderer extends BaseRenderer {
 	constructor( context ){
 		super();
 		this.context = context;
@@ -30,3 +30,5 @@ export class DomRenderer extends BaseRenderer {
 
 	};
 };
+
+export default DomRenderer;
