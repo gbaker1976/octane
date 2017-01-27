@@ -20,14 +20,8 @@ if ( '-p' === process.argv[2] ) {
 	}
 }
 
-app.engine( 'html', adapterEngine );
-app.set( 'view engine', 'html' );
-app.use( express.static( 'dist' ) );
+app.use(adapterEngine);
 
-app.get( '/', function( req, res, next ){
-    res.render( 'index' );
-});
-
-app.listen( port, function() {
-	console.log( 'Mogul App listening on port: %d', port );
+app.listen( port, () => {
+	console.log( 'Octane listening on port: %d', port );
 });
