@@ -1,6 +1,5 @@
 let express = require( 'express' );
-let html = require( './lib/html-engine' );
-let adapter = require( './lib/express-adapter' );
+let adapterEngine = require( './lib/adapter-engine' );
 let app = express();
 let port;
 
@@ -21,12 +20,14 @@ if ( '-p' === process.argv[2] ) {
 	}
 }
 
-app.engine( 'html', html );
+app.engine( 'html', adapterEngine );
 app.set( 'view engine', 'html' );
 app.use( express.static( 'dist' ) );
 
-app.get( '/', adapter( 'index' ));
+app.get( '/', function( req, res, next ){
+    res.render( 'index' );
+});
 
-app.listen( port, () => {
+app.listen( port, function() {
 	console.log( 'Mogul App listening on port: %d', port );
 });
