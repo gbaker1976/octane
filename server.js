@@ -1,5 +1,6 @@
 let express = require( 'express' );
 let adapterEngine = require( './lib/adapter-engine' );
+let contextBuilder = require( './lib/context-builder' );
 let app = express();
 let port;
 
@@ -20,7 +21,7 @@ if ( '-p' === process.argv[2] ) {
 	}
 }
 
-app.use(adapterEngine);
+app.use(contextBuilder, adapterEngine);
 
 app.listen( port, () => {
 	console.log( 'Octane listening on port: %d', port );

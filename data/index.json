@@ -38,8 +38,13 @@
 						},
 						{
 							"type": "text",
-							"context": "mobile",
-							"value": "Mobile"
+							"context": "phone",
+							"value": "Phone"
+						},
+						{
+							"type": "text",
+							"context": "tablet",
+							"value": "Tablet"
 						}
 					]
 				}

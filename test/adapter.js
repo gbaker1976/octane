@@ -1,5 +1,6 @@
 import 'babel-polyfill';
 let adapter = require('../lib/adapter');
+let htmlAst = require('../lib/html-ast');
 
 let assert = require( 'assert' );
 
@@ -260,4 +261,22 @@ describe( 'Adapter Test', () => {
 
   });
 
+});
+
+describe( 'HTML AST Parser', () => {
+	describe( '#parser', () => {
+      it( 'should parse comment into AST', ( done ) => {
+		let expected = {
+			type: 1,
+			value: 'foobar'
+		};
+		let html = "<!--foobar-->";
+		let actual = htmlAst( html );
+
+		console.log(actual);
+
+		assert( actual === expected, 'Result of parse does not match!' );
+		done();
+      });
+  });
 });
