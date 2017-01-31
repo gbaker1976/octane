@@ -365,30 +365,18 @@ describe( 'HTML AST Parser', () => {
 					type: 1,
 					name: 'h1',
 					value: '',
-					children: []
-				},
-				{
-					type: 32,
-					name: '',
-					value: '',
 					children: [
 						{
-							type: 2, // comment
-							value: 'foo',
+							type: 4,
 							name: '',
-							children: []
-						},
-						{
-							type: 2, // comment
-							value: '>bar',
-							name: '',
-							children: []
+							children: [],
+							value: 'foobar'
 						}
 					]
 				}
 			]
 		};
-		let html = "<h1></h1><!--foo-- -->bar-->";
+		let html = "<h1>foobar</h1>";
 		let actual = htmlAst( html );
 
 		assert.deepEqual( actual, expected, 'Result of parse does not match!' );
