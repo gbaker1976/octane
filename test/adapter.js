@@ -265,18 +265,134 @@ describe( 'Adapter Test', () => {
 
 describe( 'HTML AST Parser', () => {
 	describe( '#parser', () => {
-      it( 'should parse comment into AST', ( done ) => {
+      it( 'should parse simple comment into AST', ( done ) => {
 		let expected = {
-			type: 1,
-			value: 'foobar'
+			doc: [
+				{
+					type: 32,
+					name: '',
+					value: '',
+					children: [
+						{
+							type: 2, // comment
+							value: 'foobar',
+							name: '',
+							children: []
+						}
+					]
+				}
+			]
 		};
 		let html = "<!--foobar-->";
 		let actual = htmlAst( html );
 
-		console.log(actual);
-
-		assert( actual === expected, 'Result of parse does not match!' );
+		assert.deepEqual( actual, expected, 'Result of parse does not match!' );
 		done();
       });
-  });
+
+	  it( 'should parse multiple comments into AST', ( done ) => {
+		let expected = {
+			doc: [
+				{
+					type: 32,
+					name: '',
+					value: '',
+					children: [
+						{
+							type: 2, // comment
+							value: 'foo',
+							name: '',
+							children: []
+						},
+						{
+							type: 2, // comment
+							value: '>bar',
+							name: '',
+							children: []
+						}
+					]
+				}
+			]
+		};
+		let html = "<!--foo-- -->bar-->";
+		let actual = htmlAst( html );
+
+		assert.deepEqual( actual, expected, 'Result of parse does not match!' );
+		done();
+      });
+
+	  it( 'should parse DOCTYPE into AST', ( done ) => {
+		let expected = {
+			doc: [
+				{
+					type: 32,
+					name: 'doctype',
+					value: 'html',
+					children: []
+				},
+				{
+					type: 32,
+					name: '',
+					value: '',
+					children: [
+						{
+							type: 2, // comment
+							value: 'foo',
+							name: '',
+							children: []
+						},
+						{
+							type: 2, // comment
+							value: '>bar',
+							name: '',
+							children: []
+						}
+					]
+				}
+			]
+		};
+		let html = "<!doctype html><!--foo-- -->bar-->";
+		let actual = htmlAst( html );
+
+		assert.deepEqual( actual, expected, 'Result of parse does not match!' );
+		done();
+      });
+
+	  it( 'should parse tag into AST', ( done ) => {
+		let expected = {
+			doc: [
+				{
+					type: 1,
+					name: 'h1',
+					value: '',
+					children: []
+				},
+				{
+					type: 32,
+					name: '',
+					value: '',
+					children: [
+						{
+							type: 2, // comment
+							value: 'foo',
+							name: '',
+							children: []
+						},
+						{
+							type: 2, // comment
+							value: '>bar',
+							name: '',
+							children: []
+						}
+					]
+				}
+			]
+		};
+		let html = "<h1></h1><!--foo-- -->bar-->";
+		let actual = htmlAst( html );
+
+		assert.deepEqual( actual, expected, 'Result of parse does not match!' );
+		done();
+      });
+  	});
 });
