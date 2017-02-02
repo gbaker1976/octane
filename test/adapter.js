@@ -382,5 +382,43 @@ describe( 'HTML AST Parser', () => {
 		assert.deepEqual( actual, expected, 'Result of parse does not match!' );
 		done();
       });
+
+	  it( 'should parse tags into AST', ( done ) => {
+		let expected = {
+			doc: [
+				{
+					type: 1,
+					name: 'h1',
+					value: '',
+					children: [
+						{
+							type: 4,
+							name: '',
+							children: [],
+							value: 'foobar'
+						}
+					]
+				},
+				{
+					type: 32,
+					name: '',
+					value: '',
+					children: [
+						{
+							type: 2, // comment
+							value: 'baz',
+							name: '',
+							children: []
+						}
+					]
+				}
+			]
+		};
+		let html = "<h1>foobar</h1><!--baz-->";
+		let actual = htmlAst( html );
+
+		assert.deepEqual( actual, expected, 'Result of parse does not match!' );
+		done();
+      });
   	});
 });
