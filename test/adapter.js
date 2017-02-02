@@ -420,5 +420,46 @@ describe( 'HTML AST Parser', () => {
 		assert.deepEqual( actual, expected, 'Result of parse does not match!' );
 		done();
       });
+
+	  it( 'should parse heirarchical tags into AST', ( done ) => {
+		let expected = {
+			doc: [
+				{
+					type: 1,
+					name: 'h1',
+					value: '',
+					children: [
+						{
+							type: 1,
+							name: 'span',
+							value: '',
+							children: [
+								{
+									type: 4,
+									name: '',
+									children: [],
+									value: 'foobar'
+								}
+							]
+						}
+					]
+				}
+			]
+		};
+		/*
+		The error here is that when encountering the closing tag of a
+		non-heirachical tree, the closing tag is actually never accounted for.
+		The context remains CONTEXT_CLOSE_TEXT until the end of markup.
+
+		The logic accounts for closing tags must be reworked to account for the
+		closing tags. This helps in many ways since the parser will need to track
+		that closing tags match their opening tags.
+		*/
+		let html = "<h1><span>foobar</span></h1>";
+		let actual = htmlAst( html );
+
+		assert.deepEqual( actual, expected, 'Result of parse does not match!' );
+		done();
+      });
   	});
 });
