@@ -603,7 +603,7 @@ describe( 'HTML AST Parser', () => {
 		};
 		let html = "<div><h1>foobar<!--hello there--><!--another comment--></h1><h1>bazfred</h1></div>";
 		let actual = htmlAst( html );
-
+		
 		assert.deepEqual( actual, expected, 'Result of parse does not match!' );
 		done();
       });
