@@ -22,11 +22,17 @@ describe( 'Adapter Test', () => {
     it( 'should render single element dom with text child', ( done ) => {
 		let dom = {
 			"name": "abc",
-			"type": "element",
+			"type": 1,
 			"context": "*",
+			"value":"",
+			"parameters":[],
 			"children": [
 				{
-					"type": "text",
+					"type": 4,
+					"name":'',
+					"context": "*",
+					"parameters":[],
+					"children": [],
 					"value": "123"
 				}
 			]
@@ -39,11 +45,17 @@ describe( 'Adapter Test', () => {
 	it( 'should render single desktop element dom with text child', ( done ) => {
 		let dom = {
 			"name": "abc",
-			"type": "element",
+			"type": 1,
 			"context": "desktop",
+			"value":"",
+			"parameters":[],
 			"children": [
 				{
-					"type": "text",
+					"type": 4,
+					"name":'',
+					"context": "*",
+					"parameters":[],
+					"children": [],
 					"value": "123"
 				}
 			]
@@ -56,38 +68,55 @@ describe( 'Adapter Test', () => {
 	it( 'should render single element dom with many children', ( done ) => {
 		let dom = {
 			"name": "abc",
-			"type": "element",
+			"type": 1,
 			"context": "*",
+			"parameters":[],
+			"value":"",
 			"children": [
 				{
 					"name": "a",
-					"type": "element",
+					"type": 1,
 					"context": "*",
+					"parameters":[],
+					"value":"",
 					"children": [
 						{
-							"type": "text",
+							"name": "",
+							"type": 4,
+							"context": "*",
+							"parameters":[],
 							"value": "a"
 						}
 					]
 				},
 				{
 					"name": "b",
-					"type": "element",
+					"type": 1,
 					"context": "*",
+					"parameters":[],
+					"value":"",
 					"children": [
 						{
-							"type": "text",
+							"name": "",
+							"type": 4,
+							"context": "*",
+							"parameters":[],
 							"value": "b"
 						}
 					]
 				},
 				{
 					"name": "c",
-					"type": "element",
+					"type": 1,
 					"context": "*",
+					"value":"",
+					"parameters":[],
 					"children": [
 						{
-							"type": "text",
+							"name": "",
+							"type": 4,
+							"context": "*",
+							"parameters":[],
 							"value": "c"
 						}
 					]
@@ -102,25 +131,31 @@ describe( 'Adapter Test', () => {
 	it( 'should render single element dom with many children with children', ( done ) => {
 		let dom = {
 			"name": "abc",
-			"type": "element",
+			"type": 1,
 			"context": "*",
+			"value":"",
+			"parameters":[],
 			"children": [
 				{
 					"name": "a",
-					"type": "element",
+					"type": 1,
 					"context": "*",
+					"value":"",
+					"parameters":[],
 					"children": [
 						{
-							"type": "text",
+							"type": 4,
 							"value": "a2text"
 						},
 						{
 							"name": "a2",
-							"type": "element",
+							"type": 1,
 							"context": "*",
+							"value":"",
+							"parameters":[],
 							"children": [
 								{
-									"type": "text",
+									"type": 4,
 									"value": "a2"
 								}
 							]
@@ -129,22 +164,26 @@ describe( 'Adapter Test', () => {
 				},
 				{
 					"name": "b",
-					"type": "element",
+					"type": 1,
 					"context": "*",
+					"value":"",
+					"parameters":[],
 					"children": [
 						{
-							"type": "text",
+							"type": 4,
 							"value": "b"
 						}
 					]
 				},
 				{
 					"name": "c",
-					"type": "element",
+					"type": 1,
 					"context": "*",
+					"value":"",
+					"parameters":[],
 					"children": [
 						{
-							"type": "text",
+							"type": 4,
 							"value": "c"
 						}
 					]
@@ -159,25 +198,25 @@ describe( 'Adapter Test', () => {
 	it( 'should render only desktop elements', ( done ) => {
 		let dom = {
 			"name": "abc",
-			"type": "element",
+			"type": 1,
 			"context": "desktop",
 			"children": [
 				{
 					"name": "a",
-					"type": "element",
+					"type": 1,
 					"context": "mobile",
 					"children": [
 						{
-							"type": "text",
+							"type": 4,
 							"value": "a2text"
 						},
 						{
 							"name": "a2",
-							"type": "element",
+							"type": 1,
 							"context": "*",
 							"children": [
 								{
-									"type": "text",
+									"type": 4,
 									"value": "a2"
 								}
 							]
@@ -186,22 +225,22 @@ describe( 'Adapter Test', () => {
 				},
 				{
 					"name": "b",
-					"type": "element",
+					"type": 1,
 					"context": "desktop",
 					"children": [
 						{
-							"type": "text",
+							"type": 4,
 							"value": "b"
 						}
 					]
 				},
 				{
 					"name": "c",
-					"type": "element",
+					"type": 1,
 					"context": "mobile",
 					"children": [
 						{
-							"type": "text",
+							"type": 4,
 							"value": "c"
 						}
 					]
@@ -216,38 +255,38 @@ describe( 'Adapter Test', () => {
 	it( 'should render single element dom with all children, regardless of context', ( done ) => {
 		let dom = {
 			"name": "abc",
-			"type": "element",
+			"type": 1,
 			"context": "desktop",
 			"children": [
 				{
 					"name": "a",
-					"type": "element",
+					"type": 1,
 					"context": "*",
 					"children": [
 						{
-							"type": "text",
+							"type": 4,
 							"value": "a"
 						}
 					]
 				},
 				{
 					"name": "b",
-					"type": "element",
+					"type": 1,
 					"context": "mobile",
 					"children": [
 						{
-							"type": "text",
+							"type": 4,
 							"value": "b"
 						}
 					]
 				},
 				{
 					"name": "c",
-					"type": "element",
+					"type": 1,
 					"context": "desktop",
 					"children": [
 						{
-							"type": "text",
+							"type": 4,
 							"value": "c"
 						}
 					]
