@@ -518,6 +518,42 @@ describe( 'HTML AST Parser', () => {
 		done();
       });
 
+	  it( 'should parse multiple tag parameter into AST', ( done ) => {
+		let expected = {
+			doc: [
+				{
+					type: 1,
+					name: 'h1',
+					value: '',
+					parameters: [
+						{
+							name: 'class',
+							value: 'test'
+						},
+						{
+							name: 'id',
+							value: 'test2'
+						}
+					],
+					children: [
+						{
+							type: 4,
+							name: '',
+							children: [],
+							parameters: [],
+							value: 'foobar'
+						}
+					]
+				}
+			]
+		};
+		let html = "<h1 class='test' id='test2'>foobar</h1>";
+		let actual = htmlAst( html );
+
+		assert.deepEqual( actual, expected, 'Result of parse does not match!' );
+		done();
+      });
+
 	  it( 'should parse tags into AST', ( done ) => {
 		let expected = {
 			doc: [
