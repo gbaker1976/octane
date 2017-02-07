@@ -586,6 +586,69 @@ describe( 'HTML AST Parser', () => {
 		done();
       });
 
+	  it( 'should parse whitespace into text node into AST', ( done ) => {
+		let expected = {
+			doc: [
+				{
+					type: 1,
+					name: 'h1',
+					value: '',
+					parameters: [],
+					children: [
+						{
+							type: 4,
+							name: '',
+							children: [],
+							parameters: [],
+							value: "foobar\nbaz\t\t\tfred"
+						}
+					]
+				}
+			]
+		};
+		let html = "<h1>foobar\nbaz\t\t\tfred</h1>";
+		let actual = htmlAst( html );
+
+		assert.deepEqual( actual, expected, 'Result of parse does not match!' );
+		done();
+      });
+
+	  it( 'should parse collapse whitespace into spaces into AST', ( done ) => {
+		let expected = {
+			doc: [
+				{
+					type: 1,
+					name: 'h1',
+					value: '',
+					parameters: [
+						{
+							name: "class",
+							value: "one two"
+						},
+						{
+							name: "id",
+							value: " test"
+						}
+					],
+					children: [
+						{
+							type: 4,
+							name: '',
+							children: [],
+							parameters: [],
+							value: "foobar"
+						}
+					]
+				}
+			]
+		};
+		let html = "<h1\n\nclass='one two'\rid='\n\ttest'>foobar</h1>";
+		let actual = htmlAst( html );
+
+		assert.deepEqual( actual, expected, 'Result of parse does not match!' );
+		done();
+      });
+
 	  it( 'should parse tags into AST', ( done ) => {
 		let expected = {
 			doc: [
