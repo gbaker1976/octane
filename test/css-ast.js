@@ -294,7 +294,7 @@ describe( 'CSS AST Parser', () => {
 				}
 			]
 		};
-		let css = "/* this is a comment */ #foo { /* this is another comment */background: rgb(0, 0, 0, 0);/* this is another comment */ }";
+		let css = "/* this is a comment */ \n\n#foo { /* this is another comment */\nbackground: rgb(0, 0, 0, 0);/* this is another comment */ }";
 		let actual = cssAst( css );
 
 		assert.deepEqual( actual, expected, 'Result of parse does not match!' );
