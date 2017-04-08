@@ -1,5 +1,5 @@
 import 'babel-polyfill';
-let cssAst = require('../lib/css-ast');
+let cssAst = require('../lib/css-ast/css-ast');
 let assert = require( 'assert' );
 
 describe( 'CSS AST Parser', () => {

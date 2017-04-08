@@ -1,5 +1,5 @@
 import 'babel-polyfill';
-let htmlAst = require('../lib/html-ast');
+let htmlAst = require('../lib/html-ast/html-ast');
 let assert = require( 'assert' );
 
 describe( 'HTML AST Parser', () => {
@@ -752,146 +752,164 @@ describe( 'HTML AST Parser', () => {
 		done();
       });
 
-	//   it( 'should parse heirarchical sigbling tags and sibling comments into AST', ( done ) => {
-	// 	let expected = {
-	// 		doc: [
-	// 			{
-	// 				type: 1,
-	// 				name: 'div',
-	// 				value: '',
-	// 				children: [
-	// 					{
-	// 						type: 1,
-	// 						name: 'h1',
-	// 						value: '',
-	// 						children: [
-	// 							{
-	// 								type: 4,
-	// 								name: '',
-	// 								children: [],
-	// 								value: 'foobar'
-	// 							},
-	// 							{
-	// 								type: 32,
-	// 								name: '',
-	// 								value: '',
-	// 								children: [
-	// 									{
-	// 										type: 2,
-	// 										name: '',
-	// 										children: [],
-	// 										value: 'hello there'
-	// 									}
-	// 								]
-	// 							},
-	// 							{
-	// 								type: 1,
-	// 								name: 'span',
-	// 								value: '',
-	// 								children: [
-	// 									{
-	// 										type: 4,
-	// 										name: '',
-	// 										children: [],
-	// 										value: 'dog'
-	// 									}
-	// 								]
-	// 							}
-	// 						]
-	// 					},
-	// 					{
-	// 						type: 1,
-	// 						name: 'h1',
-	// 						value: '',
-	// 						children: [
-	// 							{
-	// 								type: 4,
-	// 								name: '',
-	// 								children: [],
-	// 								value: 'bazfred'
-	// 							}
-	// 						]
-	// 					}
-	// 				]
-	// 			}
-	// 		]
-	// 	};
-	// 	let html = "<div><h1>foobar<!--hello there--><span>dog</span></h1><h1>bazfred</h1></div>";
-	// 	let actual = htmlAst( html );
-	// 	//console.log(JSON.stringify(actual));
-	// 	assert.deepEqual( actual, expected, 'Result of parse does not match!' );
-	// 	done();
-    //   });
-	  //
-	//   it( 'should parse heirarchical sigbling tags into AST', ( done ) => {
-	// 	let expected = {
-	// 		doc: [
-	// 			{
-	// 				type: 1,
-	// 				name: 'div',
-	// 				value: '',
-	// 				children: [
-	// 					{
-	// 						type: 1,
-	// 						name: 'h1',
-	// 						value: '',
-	// 						children: [
-	// 							{
-	// 								type: 4,
-	// 								name: '',
-	// 								children: [],
-	// 								value: 'foobar'
-	// 							},
-	// 							{
-	// 								type: 1,
-	// 								name: 'i',
-	// 								value: '',
-	// 								children: [
-	// 									{
-	// 										type: 4,
-	// 										name: '',
-	// 										children: [],
-	// 										value: 'a'
-	// 									}
-	// 								]
-	// 							},
-	// 							{
-	// 								type: 1,
-	// 								name: 'span',
-	// 								value: '',
-	// 								children: [
-	// 									{
-	// 										type: 4,
-	// 										name: '',
-	// 										children: [],
-	// 										value: 'dog'
-	// 									}
-	// 								]
-	// 							}
-	// 						]
-	// 					},
-	// 					{
-	// 						type: 1,
-	// 						name: 'h1',
-	// 						value: '',
-	// 						children: [
-	// 							{
-	// 								type: 4,
-	// 								name: '',
-	// 								children: [],
-	// 								value: 'bazfred'
-	// 							}
-	// 						]
-	// 					}
-	// 				]
-	// 			}
-	// 		]
-	// 	};
-	// 	let html = "<div><h1>foobar<i>a</i><span>dog</span></h1><h1>bazfred</h1></div>";
-	// 	let actual = htmlAst( html );
-	// 	assert.deepEqual( actual, expected, 'Result of parse does not match!' );
-	// 	done();
-    //   });
+	  it( 'should parse heirarchical sigbling tags and sibling comments into AST', ( done ) => {
+		let expected = {
+			doc: [
+				{
+					type: 1,
+					name: 'div',
+					value: '',
+					parameters: [],
+					children: [
+						{
+							type: 1,
+							name: 'h1',
+							value: '',
+							parameters: [],
+							children: [
+								{
+									type: 4,
+									name: '',
+									children: [],
+									parameters: [],
+									value: 'foobar'
+								},
+								{
+									type: 32,
+									name: '',
+									value: '',
+									parameters: [],
+									children: [
+										{
+											type: 2,
+											name: '',
+											children: [],
+											parameters: [],
+											value: 'hello there'
+										}
+									]
+								},
+								{
+									type: 1,
+									name: 'span',
+									value: '',
+									parameters: [],
+									children: [
+										{
+											type: 4,
+											name: '',
+											children: [],
+											parameters: [],
+											value: 'dog'
+										}
+									]
+								}
+							]
+						},
+						{
+							type: 1,
+							name: 'h1',
+							value: '',
+							parameters: [],
+							children: [
+								{
+									type: 4,
+									name: '',
+									children: [],
+									parameters: [],
+									value: 'bazfred'
+								}
+							]
+						}
+					]
+				}
+			]
+		};
+		let html = "<div><h1>foobar<!--hello there--><span>dog</span></h1><h1>bazfred</h1></div>";
+		let actual = htmlAst( html );
+		//console.log(JSON.stringify(actual));
+		assert.deepEqual( actual, expected, 'Result of parse does not match!' );
+		done();
+      });
+
+	  it( 'should parse heirarchical sigbling tags into AST', ( done ) => {
+		let expected = {
+			doc: [
+				{
+					type: 1,
+					name: 'div',
+					value: '',
+					parameters: [],
+					children: [
+						{
+							type: 1,
+							name: 'h1',
+							value: '',
+							parameters: [],
+							children: [
+								{
+									type: 4,
+									name: '',
+									children: [],
+									parameters: [],
+									value: 'foobar'
+								},
+								{
+									type: 1,
+									name: 'i',
+									value: '',
+									parameters: [],
+									children: [
+										{
+											type: 4,
+											name: '',
+											children: [],
+											parameters: [],
+											value: 'a'
+										}
+									]
+								},
+								{
+									type: 1,
+									name: 'span',
+									value: '',
+									parameters: [],
+									children: [
+										{
+											type: 4,
+											name: '',
+											children: [],
+											parameters: [],
+											value: 'dog'
+										}
+									]
+								}
+							]
+						},
+						{
+							type: 1,
+							name: 'h1',
+							value: '',
+							parameters: [],
+							children: [
+								{
+									type: 4,
+									name: '',
+									children: [],
+									parameters: [],
+									value: 'bazfred'
+								}
+							]
+						}
+					]
+				}
+			]
+		};
+		let html = "<div><h1>foobar<i>a</i><span>dog</span></h1><h1>bazfred</h1></div>";
+		let actual = htmlAst( html );
+		assert.deepEqual( actual, expected, 'Result of parse does not match!' );
+		done();
+      });
 
   	});
 });
