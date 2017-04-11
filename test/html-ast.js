@@ -941,5 +941,48 @@ describe( 'HTML AST Parser', () => {
 		done();
       });
 
+	  it( 'should parse child tag context into AST', ( done ) => {
+		let expected = {
+			doc: [
+				{
+					type: 1,
+					name: 'h1',
+					value: '',
+					parameters: [{
+						name: 'data-context',
+						value: 'mobile'
+					}],
+					children: [
+						{
+							type: 1,
+							name: 'span',
+							children: [
+								{
+									type: 4,
+									name: '',
+									children: [],
+									parameters: [],
+									value: 'foobar'
+								}
+							],
+							parameters: [
+								{
+									name: 'data-context',
+									value: 'mobile'
+								}
+							],
+							value: ''
+						}
+					]
+				}
+			]
+		};
+		let html = "<h1 data-context='mobile'><span data-context='mobile'>foobar</span></h1>";
+		let actual = htmlAst( html );
+
+		assert.deepEqual( actual, expected, 'Result of parse does not match!' );
+		done();
+      });
+
   	});
 });
