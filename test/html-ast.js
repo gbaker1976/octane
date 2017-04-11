@@ -11,15 +11,13 @@ describe( 'HTML AST Parser', () => {
 					type: 32,
 					name: '',
 					value: '',
-					context: '*',
-					parameters: [],
+										parameters: [],
 					children: [
 						{
 							type: 2, // comment
 							value: 'foobar',
 							name: '',
-							context: '*',
-							parameters: [],
+														parameters: [],
 							children: []
 						}
 					]
@@ -40,14 +38,12 @@ describe( 'HTML AST Parser', () => {
 					type: 32,
 					name: '',
 					value: '',
-					context: '*',
 					parameters: [],
 					children: [
 						{
 							type: 2, // comment
 							value: 'foobar',
 							name: '',
-							context: '*',
 							parameters: [],
 							children: []
 						}
@@ -57,14 +53,12 @@ describe( 'HTML AST Parser', () => {
 					type: 32,
 					name: '',
 					value: '',
-					context: '*',
 					parameters: [],
 					children: [
 						{
 							type: 2, // comment
 							value: 'bazfred',
 							name: '',
-							context: '*',
 							parameters: [],
 							children: []
 						}
@@ -86,21 +80,18 @@ describe( 'HTML AST Parser', () => {
 					name: 'div',
 					type: 1,
 					value: '',
-					context: '*',
 					parameters: [],
 					children: [
 						{
 							type: 32,
 							name: '',
 							value: '',
-							context: '*',
 							parameters: [],
 							children: [
 								{
 									type: 2, // comment
 									value: 'foobar',
 									name: '',
-									context: '*',
 									parameters: [],
 									children: []
 								}
@@ -110,14 +101,12 @@ describe( 'HTML AST Parser', () => {
 							type: 32,
 							name: '',
 							value: '',
-							context: '*',
 							parameters: [],
 							children: [
 								{
 									type: 2, // comment
 									value: 'bazfred',
 									name: '',
-									context: '*',
 									parameters: [],
 									children: []
 								}
@@ -141,14 +130,12 @@ describe( 'HTML AST Parser', () => {
 					type: 32,
 					name: '',
 					value: '',
-					context: '*',
 					parameters: [],
 					children: [
 						{
 							type: 2, // comment
 							value: 'foo',
 							name: '',
-							context: '*',
 							parameters: [],
 							children: []
 						},
@@ -156,7 +143,6 @@ describe( 'HTML AST Parser', () => {
 							type: 2, // comment
 							value: '>bar',
 							name: '',
-							context: '*',
 							parameters: [],
 							children: []
 						}
@@ -178,7 +164,6 @@ describe( 'HTML AST Parser', () => {
 					type: 32,
 					name: 'doctype',
 					value: 'html',
-					context: '*',
 					parameters: [],
 					children: []
 				},
@@ -186,14 +171,12 @@ describe( 'HTML AST Parser', () => {
 					type: 32,
 					name: '',
 					value: '',
-					context: '*',
 					parameters: [],
 					children: [
 						{
 							type: 2, // comment
 							value: 'foo',
 							name: '',
-							context: '*',
 							parameters: [],
 							children: []
 						},
@@ -201,7 +184,6 @@ describe( 'HTML AST Parser', () => {
 							type: 2, // comment
 							value: '>bar',
 							name: '',
-							context: '*',
 							parameters: [],
 							children: []
 						}
@@ -223,13 +205,11 @@ describe( 'HTML AST Parser', () => {
 					type: 1,
 					name: 'h1',
 					value: '',
-					context: '*',
 					parameters: [],
 					children: [
 						{
 							type: 4,
 							name: '',
-							context: '*',
 							children: [],
 							parameters: [],
 							value: 'foobar'
@@ -252,13 +232,11 @@ describe( 'HTML AST Parser', () => {
 					type: 1,
 					name: 'h1',
 					value: '',
-					context: '*',
 					parameters: [],
 					children: [
 						{
 							type: 4,
 							name: '',
-							context: '*',
 							children: [],
 							parameters: [],
 							value: 'foobar'
@@ -267,13 +245,11 @@ describe( 'HTML AST Parser', () => {
 							type: 1,
 							name: 'span',
 							value: '',
-							context: '*',
 							parameters: [],
 							children: [
 								{
 									type: 4,
 									name: '',
-									context: '*',
 									value: 'dino',
 									parameters: [],
 									children: []
@@ -284,7 +260,6 @@ describe( 'HTML AST Parser', () => {
 							type: 4,
 							name: '',
 							children: [],
-							context: '*',
 							parameters: [],
 							value: 'bazfred'
 						}
@@ -306,7 +281,6 @@ describe( 'HTML AST Parser', () => {
 					type: 1,
 					name: 'h1',
 					value: '',
-					context: '*',
 					parameters: [
 						{
 							name: 'class',
@@ -318,7 +292,6 @@ describe( 'HTML AST Parser', () => {
 							type: 4,
 							name: '',
 							children: [],
-							context: '*',
 							parameters: [],
 							value: 'foobar'
 						}
@@ -340,7 +313,6 @@ describe( 'HTML AST Parser', () => {
 					type: 1,
 					name: 'h1',
 					value: '',
-					context: '*',
 					parameters: [
 						{
 							name: 'class',
@@ -356,7 +328,6 @@ describe( 'HTML AST Parser', () => {
 							type: 4,
 							name: '',
 							children: [],
-							context: '*',
 							parameters: [],
 							value: 'foobar'
 						}
@@ -378,7 +349,6 @@ describe( 'HTML AST Parser', () => {
 					type: 1,
 					name: 'h1',
 					value: '',
-					context: '*',
 					parameters: [
 						{
 							name: 'class',
@@ -390,7 +360,6 @@ describe( 'HTML AST Parser', () => {
 							type: 4,
 							name: '',
 							children: [],
-							context: '*',
 							parameters: [],
 							value: 'foobar'
 						}
@@ -412,14 +381,12 @@ describe( 'HTML AST Parser', () => {
 					type: 1,
 					name: 'h1',
 					value: '',
-					context: '*',
 					parameters: [],
 					children: [
 						{
 							type: 4,
 							name: '',
 							children: [],
-							context: '*',
 							parameters: [],
 							value: "foobar\nbaz\t\t\tfred"
 						}
@@ -441,7 +408,6 @@ describe( 'HTML AST Parser', () => {
 					type: 1,
 					name: 'h1',
 					value: '',
-					context: '*',
 					parameters: [
 						{
 							name: "class",
@@ -456,7 +422,6 @@ describe( 'HTML AST Parser', () => {
 						{
 							type: 4,
 							name: '',
-							context: '*',
 							children: [],
 							parameters: [],
 							value: "foobar"
@@ -479,13 +444,11 @@ describe( 'HTML AST Parser', () => {
 					type: 1,
 					name: 'h1',
 					value: '',
-					context: '*',
 					parameters: [],
 					children: [
 						{
 							type: 4,
 							name: '',
-							context: '*',
 							children: [],
 							parameters: [],
 							value: 'foobar'
@@ -496,14 +459,12 @@ describe( 'HTML AST Parser', () => {
 					type: 32,
 					name: '',
 					value: '',
-					context: '*',
 					parameters: [],
 					children: [
 						{
 							type: 2, // comment
 							value: 'baz',
 							name: '',
-							context: '*',
 							parameters: [],
 							children: []
 						}
@@ -525,20 +486,17 @@ describe( 'HTML AST Parser', () => {
 					type: 1,
 					name: 'h1',
 					value: '',
-					context: '*',
 					parameters: [],
 					children: [
 						{
 							type: 1,
 							name: 'span',
 							value: '',
-							context: '*',
 							parameters: [],
 							children: [
 								{
 									type: 4,
 									name: '',
-									context: '*',
 									children: [],
 									parameters: [],
 									value: 'foobar'
@@ -564,13 +522,11 @@ describe( 'HTML AST Parser', () => {
 					type: 1,
 					name: 'h1',
 					value: '',
-					context: '*',
 					parameters: [],
 					children: [
 						{
 							type: 4,
 							name: '',
-							context: '*',
 							children: [],
 							parameters: [],
 							value: 'foobar'
@@ -581,13 +537,11 @@ describe( 'HTML AST Parser', () => {
 					type: 1,
 					name: 'h1',
 					value: '',
-					context: '*',
 					parameters: [],
 					children: [
 						{
 							type: 4,
 							name: '',
-							context: '*',
 							children: [],
 							parameters: [],
 							value: 'bazfred'
@@ -610,20 +564,17 @@ describe( 'HTML AST Parser', () => {
 					type: 1,
 					name: 'div',
 					value: '',
-					context: '*',
 					parameters: [],
 					children: [
 						{
 							type: 1,
 							name: 'h1',
 							value: '',
-							context: '*',
 							parameters: [],
 							children: [
 								{
 									type: 4,
 									name: '',
-									context: '*',
 									children: [],
 									parameters: [],
 									value: 'foobar'
@@ -634,13 +585,11 @@ describe( 'HTML AST Parser', () => {
 							type: 1,
 							name: 'h1',
 							value: '',
-							context: '*',
 							parameters: [],
 							children: [
 								{
 									type: 4,
 									name: '',
-									context: '*',
 									children: [],
 									parameters: [],
 									value: 'bazfred'
@@ -665,35 +614,30 @@ describe( 'HTML AST Parser', () => {
 					type: 1,
 					name: 'div',
 					value: '',
-					context: '*',
 					parameters: [],
 					children: [
 						{
 							type: 1,
 							name: 'h1',
 							value: '',
-							context: '*',
 							parameters: [],
 							children: [
 								{
 									type: 4,
 									name: '',
 									children: [],
-									context: '*',
 									parameters: [],
 									value: 'foobar'
 								},
 								{
 									type: 1,
 									name: 'span',
-									context: '*',
 									parameters: [],
 									children: [
 										{
 											type: 4,
 											name: '',
 											children: [],
-											context: '*',
 											parameters: [],
 											value: 'the baz'
 										}
@@ -706,14 +650,12 @@ describe( 'HTML AST Parser', () => {
 							type: 1,
 							name: 'h1',
 							value: '',
-							context: '*',
 							parameters: [],
 							children: [
 								{
 									type: 4,
 									name: '',
 									children: [],
-									context: '*',
 									parameters: [],
 									value: 'bazfred'
 								}
@@ -737,21 +679,18 @@ describe( 'HTML AST Parser', () => {
 					type: 1,
 					name: 'div',
 					value: '',
-					context: '*',
 					parameters: [],
 					children: [
 						{
 							type: 1,
 							name: 'h1',
 							value: '',
-							context: '*',
 							parameters: [],
 							children: [
 								{
 									type: 4,
 									name: '',
 									children: [],
-									context: '*',
 									parameters: [],
 									value: 'foobar'
 								},
@@ -759,14 +698,12 @@ describe( 'HTML AST Parser', () => {
 									type: 32,
 									name: '',
 									value: '',
-									context: '*',
 									parameters: [],
 									children: [
 										{
 											type: 2,
 											name: '',
 											children: [],
-											context: '*',
 											parameters: [],
 											value: 'hello there'
 										}
@@ -776,14 +713,12 @@ describe( 'HTML AST Parser', () => {
 									type: 32,
 									name: '',
 									value: '',
-									context: '*',
 									parameters: [],
 									children: [
 										{
 											type: 2,
 											name: '',
 											children: [],
-											context: '*',
 											parameters: [],
 											value: 'another comment'
 										}
@@ -795,14 +730,12 @@ describe( 'HTML AST Parser', () => {
 							type: 1,
 							name: 'h1',
 							value: '',
-							context: '*',
 							parameters: [],
 							children: [
 								{
 									type: 4,
 									name: '',
 									children: [],
-									context: '*',
 									parameters: [],
 									value: 'bazfred'
 								}
@@ -826,35 +759,30 @@ describe( 'HTML AST Parser', () => {
 					type: 1,
 					name: 'div',
 					value: '',
-					context: '*',
 					parameters: [],
 					children: [
 						{
 							type: 1,
 							name: 'h1',
 							value: '',
-							context: '*',
 							parameters: [],
 							children: [
 								{
 									type: 4,
 									name: '',
 									children: [],
-									context: '*',
 									parameters: [],
 									value: 'foobar'
 								},
 								{
 									type: 32,
 									name: '',
-									context: '*',
 									value: '',
 									parameters: [],
 									children: [
 										{
 											type: 2,
 											name: '',
-											context: '*',
 											children: [],
 											parameters: [],
 											value: 'hello there'
@@ -864,14 +792,12 @@ describe( 'HTML AST Parser', () => {
 								{
 									type: 1,
 									name: 'span',
-									context: '*',
 									value: '',
 									parameters: [],
 									children: [
 										{
 											type: 4,
 											name: '',
-											context: '*',
 											children: [],
 											parameters: [],
 											value: 'dog'
@@ -884,13 +810,11 @@ describe( 'HTML AST Parser', () => {
 							type: 1,
 							name: 'h1',
 							value: '',
-							context: '*',
 							parameters: [],
 							children: [
 								{
 									type: 4,
 									name: '',
-									context: '*',
 									children: [],
 									parameters: [],
 									value: 'bazfred'
@@ -915,20 +839,17 @@ describe( 'HTML AST Parser', () => {
 					type: 1,
 					name: 'div',
 					value: '',
-					context: '*',
 					parameters: [],
 					children: [
 						{
 							type: 1,
 							name: 'h1',
 							value: '',
-							context: '*',
 							parameters: [],
 							children: [
 								{
 									type: 4,
 									name: '',
-									context: '*',
 									children: [],
 									parameters: [],
 									value: 'foobar'
@@ -937,13 +858,11 @@ describe( 'HTML AST Parser', () => {
 									type: 1,
 									name: 'i',
 									value: '',
-									context: '*',
 									parameters: [],
 									children: [
 										{
 											type: 4,
 											name: '',
-											context: '*',
 											children: [],
 											parameters: [],
 											value: 'a'
@@ -954,13 +873,11 @@ describe( 'HTML AST Parser', () => {
 									type: 1,
 									name: 'span',
 									value: '',
-									context: '*',
 									parameters: [],
 									children: [
 										{
 											type: 4,
 											name: '',
-											context: '*',
 											children: [],
 											parameters: [],
 											value: 'dog'
@@ -973,14 +890,12 @@ describe( 'HTML AST Parser', () => {
 							type: 1,
 							name: 'h1',
 							value: '',
-							context: '*',
 							parameters: [],
 							children: [
 								{
 									type: 4,
 									name: '',
 									children: [],
-									context: '*',
 									parameters: [],
 									value: 'bazfred'
 								}
@@ -992,6 +907,36 @@ describe( 'HTML AST Parser', () => {
 		};
 		let html = "<div><h1>foobar<i>a</i><span>dog</span></h1><h1>bazfred</h1></div>";
 		let actual = htmlAst( html );
+		assert.deepEqual( actual, expected, 'Result of parse does not match!' );
+		done();
+      });
+
+	  it( 'should parse tag context into AST', ( done ) => {
+		let expected = {
+			doc: [
+				{
+					type: 1,
+					name: 'h1',
+					value: '',
+					parameters: [{
+						name: 'data-context',
+						value: 'mobile'
+					}],
+					children: [
+						{
+							type: 4,
+							name: '',
+							children: [],
+							parameters: [],
+							value: 'foobar'
+						}
+					]
+				}
+			]
+		};
+		let html = "<h1 data-context='mobile'>foobar</h1>";
+		let actual = htmlAst( html );
+
 		assert.deepEqual( actual, expected, 'Result of parse does not match!' );
 		done();
       });
